@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simpleAnaglyphMaker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script type="text/javascript" src="script.js" charset="utf-8"></script>
+	<link rel='stylesheet' href='style.css' type='text/css' media='all' />
+</head>
+<body>
+
+<div id="anaglyphContainer">
+	<div id="wrapper">
+		<canvas id="anaglyph"></canvas>
+	</div>
+</div>
+
+<div id="buttons">
+	<div>
+		<input type="button" value="Select left" class="btnLoadFile" data-eye="left" />
+		<input type="button" value="Select right" class="btnLoadFile" data-eye="right" />
+		<input type="button" value="Create anaglyph" id="btnCreateAnaglyph" />
+		<input type="file" class="fileInput" id="leftFile" data-eye="left" style="display: none;"/>
+		<input type="file" class="fileInput" id="rightFile" data-eye="right" style="display: none;"/>
+	</div>
+
+	<div>
+		Preview zoom: 
+		<select id="zoomSelector"><option value="1">1</</option><option value="0.5">0.5</</option><option value="0.25">0.25</</option></select>
+	</div>
+
+	<div>
+		Offset X: 
+		<button class="btnChangeOffset" data-dir="x" data-val="-1" >-1</button>
+		<button class="btnChangeOffset" data-dir="x" data-val="1" >+1</button>
+		<button class="btnChangeOffset" data-dir="x" data-val="-10" >-10</button>
+		<button class="btnChangeOffset" data-dir="x" data-val="10" >+10</button>
+	</div>
+
+	<div>
+		Offset Y: 
+		<button class="btnChangeOffset" data-dir="y" data-val="-1" >-1</button>
+		<button class="btnChangeOffset" data-dir="y" data-val="1" >+1</button>
+		<button class="btnChangeOffset" data-dir="y" data-val="-10" >-10</button>
+		<button class="btnChangeOffset" data-dir="y" data-val="10" >+10</button>
+	</div>
+</div>
+
+</body>
+</html>
