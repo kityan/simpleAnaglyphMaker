@@ -1,0 +1,16 @@
+#anaglyphContainer {
+	width: 800px;
+	height: 600px;
+	overflow: scroll;
+	border: 1px solid #AAA;
+}  
+
+#anaglyph {
+	transform-origin: 0 0;
+}
+
+#wrapper {
+	overflow: hidden;
+}
+
+#buttons div {margin-top: 5px; margin-bottom: 10px;}
