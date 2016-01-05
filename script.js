@@ -35,7 +35,8 @@ function onWindowLoad(){
 		if (!images['left'] || !images['right']){
 			return;
 		}
-		scaleFactor = e.target.value;
+		scaleFactor = $(e.target).find('input').val();
+
 		document.getElementById('anaglyph').setAttribute('style','transform: scale(' + scaleFactor + ');');
 		document.getElementById('wrapper').setAttribute('style','width: ' +  images['left'].naturalWidth * scaleFactor + 'px; height: ' + images['left'].naturalHeight * scaleFactor + 'px');
 	}
@@ -102,6 +103,10 @@ function onWindowLoad(){
 		var eye = e.target.getAttribute('data-eye'); 
 		images[eye] = e.target;
 		console.log('Loaded image for ' + eye + ' eye. Size: ' + e.target.naturalWidth + 'x' + e.target.naturalHeight);
+		if (images['left'] && images['right']){
+			$('#btnCreateAnaglyph, .btnChangeOffset, .zoomSelector').removeAttr('disabled');
+		}
+
 	}
 
 
@@ -148,7 +153,8 @@ function onWindowLoad(){
 	[].forEach.call(document.getElementsByClassName('fileInput'), function(el) {el.addEventListener('change', onFileInputChange);});
 	[].forEach.call(document.getElementsByClassName('btnChangeOffset'), function(el) {el.addEventListener('click', onBtnChangeOffsetClick);});
 	document.getElementById('btnCreateAnaglyph').addEventListener('click', onBtnCreateAnaglyph);
-	document.getElementById('zoomSelector').addEventListener('change', onZoomChange);
+	$('.zoomSelector').on('click', onZoomChange);
+
 
 }
 
